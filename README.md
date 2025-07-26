@@ -9,7 +9,8 @@ Week 1:
 - [Notion Page](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
 
 ## 🏞️ Content Description & Context:
-```DuncanYu-HW/
+```
+DuncanYu-HW/
 ├── Week 1 [Week 1 Content]
 │   ├── Part 1 [Part 1 Necessary Content and Screenshots]
 │   │   ├── Screenshots
@@ -24,7 +25,8 @@ Week 1:
 │       ├── [Implements Part 1 requirements]
 │       ├── [Uses Brave Search, GitHub API, Playwright, GPT-4]
 │       └── [Attempted Notion integration (unsuccessful)]
-└── README.md```
+└── README.md
+```
 
 ## 📋 Task To Do List For This Week
 Part 1:

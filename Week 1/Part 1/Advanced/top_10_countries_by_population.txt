@@ -1,0 +1,29 @@
+TOP 10 COUNTRIES BY POPULATION
+Data scraped from Wikipedia on July 26, 2025
+Source: https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population
+
+=======================================================
+
+Rank | Country        | Population      | % of World
+-----|----------------|-----------------|------------
+1    | India          | 1,417,492,000   | 17.3%
+2    | China          | 1,408,280,000   | 17.2%
+3    | United States  | 340,110,988     | 4.2%
+4    | Indonesia      | 284,438,782     | 3.5%
+5    | Pakistan       | 241,499,431     | 2.9%
+6    | Nigeria        | 223,800,000     | 2.7%
+7    | Brazil         | 212,583,750     | 2.6%
+8    | Bangladesh     | 169,828,911     | 2.1%
+9    | Russia         | 146,028,325     | 1.8%
+10   | Mexico         | 130,417,144     | 1.6%
+
+=======================================================
+
+Notes:
+- Population figures are based on the most recent official estimates, projections, or census data
+- Data sources include official government statistics and UN Department of Economic and Social Affairs projections
+- India has recently overtaken China as the world's most populous country
+- The top 2 countries (India and China) account for over 34% of the world's population combined
+- The top 10 countries represent approximately 67% of the global population
+
+Total World Population: 8,232,000,000 (as of June 13, 2025 - UN projection)

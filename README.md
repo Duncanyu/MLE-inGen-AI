@@ -20,11 +20,11 @@ DuncanYu-HW/
 │   ├── Part 3 [Part 3 Necessary Content and Screenshots]
 │   │   ├── Screenshots
 │   │   └── LCEL_Ollama.py
-│   └── RepoSearchPipeline 
-│       ├── [Python-based project (pre-GitHub)]
+│   └── Python MCP Client 
+│       ├── [Python-based project]
 │       ├── [Implements Part 1 requirements]
 │       ├── [Uses Brave Search, GitHub API, Playwright, GPT-4]
-│       └── [Attempted Notion integration (unsuccessful)]
+│       └── [Attempted Notion integration]
 └── README.md
 ```
 

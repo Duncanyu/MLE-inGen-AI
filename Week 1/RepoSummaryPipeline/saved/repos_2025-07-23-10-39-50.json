@@ -1,0 +1,11 @@
+[
+  {
+    "name": "ML-For-Beginners",
+    "description": "12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all",
+    "stars": 75587,
+    "language": "HTML",
+    "url": "https://github.com/microsoft/ML-For-Beginners",
+    "last_updated": "2025-07-26T14:30:55Z",
+    "summary": "Strengths:\n1. The repository, titled \"ML-For-Beginners\", is highly popular with 75587 stars.\n2. It provides a comprehensive 12-week, 26-lesson curriculum focusing on classic machine learning, primarily using the Scikit-learn library.\n3. The curriculum involves a project-based pedagogy, offering pre- and post-lesson quizzes, written instructions, solutions, assignments, etc., encouraging active learning.\n4. It is not just suitable for individual learners. The curriculum provides suggestions on how to be used by teachers.\n5. The community is large and active, with notable contributors and authors from Microsoft, including Student Ambassadors.\n\nWeaknesses:\n1. The repository uses HTML, which is not a common language for developing machine learning models.\n2. The curriculum is focused on classic machine learning and deliberately avoids deep learning.\n3. The repository may be complex for absolute beginners as it encourages learning by building rather than providing extensive upfront theory."
+  }
+]

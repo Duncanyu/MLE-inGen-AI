@@ -21,5 +21,3 @@ demo = gr.Interface(
 )
 
 demo.launch(share = True)
-
-#* Running on public URL: https://8e5ba90c2d991e5fff.gradio.live

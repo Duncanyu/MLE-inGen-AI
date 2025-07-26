@@ -24,8 +24,7 @@ DuncanYu-HW/
 │   ├── Part 3 [Part 3 Necessary Content and Screenshots]
 │   │   ├── Screenshots
 │   │   ├── Advanced
-│   │   │   ├── Gradio_Integration.py [My script for the Gradio Integration of Ollama and LCEL]
-│   │   │   └── [You can access the public Gradio URL via the python file's bottom comment.]
+│   │   │   └── Gradio_Integration.py [My script for the Gradio Integration of Ollama and LCEL]
 │   │   └── LCEL_Ollama.py
 │   └── Python MCP Client 
 │       ├── [Python-based project]

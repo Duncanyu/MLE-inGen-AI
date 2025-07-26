@@ -4,10 +4,8 @@
 ## 🔗 Important Links:
 Week 1: [Link Text](https://github.com)
 
----
 ## 🏞️ Content Description & Context:
 
----
 ## 📋 Task To Do List For This Week
 Part 1:
 1. MCP + Claude Browser Automation

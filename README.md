@@ -17,6 +17,7 @@ DuncanYu-HW/
 │   │   ├── Advanced
 │   │   │   └── top_10_countries_by_population.txt [Generated file from Puppeteer's scrape for Claude MCP]
 │   │   ├── claude_config.json [My specific MCP config file for Claude]
+│   │   ├── notion.txt [A link to the Notion pad that Claude generated]
 │   │   └── hello.txt [Generated file from Filesystem subtask for Claude MCP]
 │   ├── Part 2 [Part 2 Necessary Content and Screenshots]
 │   │   ├── Screenshots

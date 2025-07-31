@@ -6,7 +6,7 @@ API_URL = "http://127.0.0.1:8000/v1/completions"
 prompt = "What is the capital of France?"
 
 payload = {
-    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "model": "meta-llama/Llama-3.2-1B",
     "prompt": prompt,
     "max_tokens": 50,
     "temperature": 0.7

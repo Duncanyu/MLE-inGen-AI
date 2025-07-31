@@ -8,6 +8,13 @@
 - [Part 3](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%203)
 - [Notion Page](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
 
+**Week 2:** 
+- [Main Task](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%201)
+- [Bonus Task 1](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%202)
+- [Bonus Task 2](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%203)
+- [Bonus Task 3](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
+- [Bonus Task 4](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
+
 ## 🏞️ Content Description & Context:
 ```
 DuncanYu-HW/
@@ -39,17 +46,17 @@ DuncanYu-HW/
 
 ## 📋 Task To Do List For This Week
 **Main Task:** ✔
-1. Play around with Tesseract via Terminal ✔
-2. Python script for Tesseract OCR ✔
+- [x] Play around with Tesseract via Terminal.
+- [x] Python script for Tesseract OCR.
 
 **Bonus Task 1:** ✔
-1. Create a script using arXiv, Trafilatura, and requests to scrape abstracts and convert to .json files. ✔
+- [x] Create a script using arXiv, Trafilatura, and requests to scrape abstracts and convert to .json files.
 
 **Bonus Task 2:** ✔
-1. Create a script using pdf2image and pytesseract to convert PDFs to images, then to text. ✔
+- [x] Create a script using pdf2image and pytesseract to convert PDFs to images, then to text.
 
-**Bonus Task 3:** 
-1. Create a script using yt-dlp and pytesseract to transcribe.
+**Bonus Task 3:** ✔
+- [x] Create a script using yt-dlp and pytesseract to transcribe.
 
-**Bonus Task 2:** 
-1. Create a script using langdetect and datasketch to clean data and deduplicate.
+**Bonus Task 2:** ✔
+- [x] Create a script using langdetect and datasketch to clean data and deduplicate.

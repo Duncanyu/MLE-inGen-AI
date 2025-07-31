@@ -15,4 +15,4 @@ This week focused on data collection and extraction methods, including OCR tools
 - [x] Bonus task: Trafilatura
 - [x] Bonus task: PDF OCR
 - [x] Bonus task: ASR
-- [ ] Bonus task: Data Cleaning & Deduplication
+- [x] Bonus task: Data Cleaning & Deduplication

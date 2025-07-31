@@ -3,9 +3,9 @@
 
 ## 🔗 Important Links:
 **Week 1:** 
-- [Part 1](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%201)
-- [Part 2](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%202)
-- [Part 3](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%203)
+- [Part 1](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week1/Part1)
+- [Part 2](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week1/Part2)
+- [Part 3](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week1/Part3)
 - [Notion Page](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
 
 ## 🏞️ Content Description & Context:

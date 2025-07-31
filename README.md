@@ -38,18 +38,18 @@ DuncanYu-HW/
 ```
 
 ## 📋 Task To Do List For This Week
-[x] **Main Task:** ✔
+**Main Task:** ✔
 - [x] Play around with Tesseract via Terminal ✔
 - [x] Python script for Tesseract OCR ✔
 
-[x] **Bonus Task 1:** ✔
+**Bonus Task 1:** ✔
 - [x] Create a script using arXiv, Trafilatura, and requests to scrape abstracts and convert to .json files. ✔
 
-[x] **Bonus Task 2:** ✔
+**Bonus Task 2:** ✔
 - [x] Create a script using pdf2image and pytesseract to convert PDFs to images, then to text. ✔
 
-[ ] **Bonus Task 3:** 
+**Bonus Task 3:** 
 - [ ] Create a script using yt-dlp and pytesseract to transcribe.
 
-[ ] **Bonus Task 2:** 
+**Bonus Task 2:** 
 - [ ] Create a script using langdetect and datasketch to clean data and deduplicate.

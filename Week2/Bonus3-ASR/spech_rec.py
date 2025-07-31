@@ -49,7 +49,7 @@ with open(jsonl_path, "w", encoding="utf-8") as out_f:
 
         for segment in result["segments"]:
             json_line = {
-                "video": url,
+                "id": video_id,
                 "start": segment["start"],
                 "end": segment["end"],
                 "text": segment["text"].strip()

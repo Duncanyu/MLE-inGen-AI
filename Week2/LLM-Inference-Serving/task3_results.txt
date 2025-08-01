@@ -1,0 +1,64 @@
+llm test results
+Test 1: What is the capital of France?
+  vllm: A. Paris B. New York C. Washington D. Baton Rouge
+A. 1
+B. 2
+C. 3
+D. 4
+Answer: A
+Explanation:   Paris is the capital of France. | time: 0.37s | correct: True
+  chat: The capital of France is Paris. | time: 1.93s | correct: True
+
+Test 2: 2 + 2 =
+  vllm: 4. 2 + 2 = 4. 2 + 2 = 4. 2 + 2 = 4. 2 + 2 = 4. 2 + 2 = 4. 2 | time: 0.33s | correct: True
+  chat: 2 + 2 = 4. | time: 0.89s | correct: True
+
+Test 3: What is the capital of Japan?
+  vllm: A. Tokyo B. Honolulu C. Annapolis D. Honolulu
+Answer: A
+Explanation:   Tokyo is the capital of Japan. | time: 0.20s | correct: True
+  chat: The capital of Japan is Tokyo. | time: 1.28s | correct: True
+
+Test 4: Who wrote 'Pride and Prejudice'?
+  vllm: Who wrote 'Pride and Prejudice'?
+Who wrote 'Pride and Prejudice'? Who wrote 'Pride and Prejudice'?
+Who wrote 'Pride and Prejudice'? Who wrote 'Pride and Prejud | time: 0.32s | correct: False
+  chat: 'Pride and Prejudice' was written by Jane Austen. It was first published in 1813 and is one of her most famous novels. | time: 0.99s | correct: True
+
+Test 5: What is the boiling point of water (in Celsius)?
+  vllm: The boiling point of water is 100.6 °C (212.1 °F). The boiling point of water is the temperature at which the liquid changes to a gas. The boiling point of water is the temperature at which the liquid changes to | time: 0.32s | correct: True
+  chat: The boiling point of water at standard atmospheric pressure (1 atmosphere or 101.3 kPa) is 100 degrees Celsius (°C). However, this boiling point can change with variations in atmospheric pressure. | time: 1.83s | correct: True
+
+Test 6: What is 9 * 8?
+  vllm: What is 9 * 8? What is 9 * 8? What is 9 * 8? What is 9 * 8? What is 9 * 8? What is 9 * 8? What is | time: 0.33s | correct: False
+  chat: 9 * 8 equals 72. | time: 1.04s | correct: True
+
+Test 7: Which planet is known as the Red Planet?
+  vllm: (2023)
+1. What is the name of the planet that is known as the Red Planet?
+2. What is the name of the planet that is known as the Red Planet?
+3. What is the name of the planet that is known | time: 0.33s | correct: False
+  chat: Mars is known as the Red Planet. Its reddish appearance is due to iron oxide, or rust, on its surface. | time: 0.74s | correct: True
+
+Test 8: What is the chemical symbol for gold?
+  vllm: What is the chemical symbol for gold?
+What is the chemical symbol for gold? What is the chemical symbol for gold?
+What is the chemical symbol for gold?
+What is the chemical symbol for gold?
+What is the chemical symbol for gold?
+What is | time: 0.32s | correct: False
+  chat: The chemical symbol for gold is Au. | time: 0.73s | correct: True
+
+Test 9: Who painted the Mona Lisa?
+  vllm: The mystery of Leonardo da Vinci’s masterpiece
+The Mona Lisa is one of the most famous paintings in the world. It is a portrait of a woman, which is considered to be one of the most famous paintings in the world. It is a portrait | time: 0.32s | correct: True
+  chat: The Mona Lisa was painted by the Italian artist Leonardo da Vinci. It is considered one of the most famous paintings in the world and is housed in the Louvre Museum in Paris. | time: 0.85s | correct: True
+
+Test 10: What is the square root of 144?
+  vllm: The square root of 144 is 12. The square root of 144 is the number that when multiplied by itself gives 144. The square root of 144 is 12. The square root of 144 is the number that when multiplied | time: 0.32s | correct: True
+  chat: The square root of 144 is 12. | time: 0.47s | correct: True
+
+
+summary:
+  vllm correct: 6/10
+  got correct: 10/10

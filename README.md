@@ -26,6 +26,8 @@ Contains all homework submissions for **Week 1** and **Week 2**, plus root files
 Completed last week and includes the **Python MCP Client project**.
 
 ```text
+├── To avoid clutter, this week's work has been condensed/removed from the content preview
+│
 ├── Part 1 – Python MCP Client
 │   ├── Python-based project
 │   ├── Implements Part 1 requirements

@@ -11,7 +11,7 @@ This week there were two assignment files. 'Class 2 Homework.jpynb' and README_c
     - Cleanup
 - README_class2.jpynb
     - Run an LLM locally
-    - Test vLLM API (Could only do LLaMa 1B)
+    - Test vLLM API (Could only do Llama 1B)
     - Compare results with ChatGPT API
 
 ## Status

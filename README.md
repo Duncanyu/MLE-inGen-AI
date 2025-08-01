@@ -69,8 +69,10 @@ Completed last week and includes the **Python MCP Client project**.
 │   └── check2.txt
 │
 └── Test-vLLM                   Task 2: Lightning-fast vLLM inference
-    ├── vllm_api_test.py        ! COULD NOT USE LLAMA 8B OR MISTRAL 7B WITH INFERENCE.AI ! Used Llama 1B instead
-    └── vllm_test_results.txt
+│   ├── vllm_api_test.py        ! COULD NOT USE LLAMA 8B OR MISTRAL 7B WITH INFERENCE.AI ! Used Llama 1B instead
+│   └── vllm_test_results.txt
+│
+└── README.md
 ```
 
 ### **📄 Other root files**
@@ -95,6 +97,9 @@ Completed last week and includes the **Python MCP Client project**.
 
 - ### **Bonus Task 3:**
     - [x] Create a script using yt-dlp and pytesseract to transcribe.
+
+- ### **Bonus Task 4:**
+    - [x] Create a script using langdetect and datasketch to clean data and deduplicate.
 
 - ### **Bonus Task 4:**
     - [x] Create a script using langdetect and datasketch to clean data and deduplicate.

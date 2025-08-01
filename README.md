@@ -89,31 +89,31 @@ Completed last week and includes the **Python MCP Client project**.
 ## 📋 Task To Do List For This Week
 
 ### **'Class 2 Homework.ipynb'**
-- ### **Main Task:**
+- ### Main Task:
     - [x] Play around with Tesseract via Terminal.
     - [x] Python script for Tesseract OCR.
 
-- ### **Bonus Task 1:**
+- ### Bonus Task 1:
     - [x] Create a script using arXiv, Trafilatura, and requests to scrape abstracts and convert to .json files.
 
-- ### **Bonus Task 2:**
+- ### Bonus Task 2:
     - [x] Create a script using pdf2image and pytesseract to convert PDFs to images, then to text.
 
-- ### **Bonus Task 3:**
+- ### Bonus Task 3:
     - [x] Create a script using yt-dlp and pytesseract to transcribe.
 
-- ### **Bonus Task 4:**
+- ### Bonus Task 4:
     - [x] Create a script using langdetect and datasketch to clean data and deduplicate.
 
-- ### **Bonus Task 4:**
+- ### Bonus Task 4:
     - [x] Create a script using langdetect and datasketch to clean data and deduplicate.
 
 ### **README_class2.ipynb**
-- ### **Task 1:**
+- ### Task 1:
     - [x] Run an open-source huggingface LLM via Python.
 
-- ### **Task 2:**
+- ### Task 2:
     - [x] Run a vLLM with API.
 
-- ### **Bonus Task 2:**
+- ### Bonus Task 2:
     - [x] Compare vLLM and OpenAI's ChatGPT from a performance, accuracy, and cost standpoint. 

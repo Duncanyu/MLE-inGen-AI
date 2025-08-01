@@ -73,8 +73,10 @@ Completed last week and includes the **Python MCP Client project**.
 │   └── check2.txt
 │
 └── Test-vLLM                   Task 2: Lightning-fast vLLM inference
-    ├── vllm_api_test.py
-    └── vllm_test_results.txt
+│   ├── vllm_api_test.py
+│   └── vllm_test_results.txt
+│
+└── README.md
 ```
 
 ### **📄 Other root files**

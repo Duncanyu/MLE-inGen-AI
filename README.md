@@ -24,8 +24,6 @@
 ### **📁 DuncanYu-HW**
 Contains all homework submissions for **Week 1** and **Week 2**, plus root files.
 
----
-
 ### **📁 Week 1 – Week 1 Content**
 Completed last week and includes the **Python MCP Client project**.
 
@@ -62,8 +60,6 @@ Completed last week and includes the **Python MCP Client project**.
 └── README.md
 ```
 
----
-
 #### **README-class2 Tasks** *(from `README_class2.ipynb`)*
 ```text
 ├── Compare-vLLM-ChatGPT       Task 3: Compare accuracy/performance
@@ -80,8 +76,6 @@ Completed last week and includes the **Python MCP Client project**.
     ├── vllm_api_test.py
     └── vllm_test_results.txt
 ```
-
----
 
 ### **📄 Other root files**
 ```text

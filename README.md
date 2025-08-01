@@ -11,12 +11,8 @@
 - [Notion Page](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
 
 ### **Week 2:** 
-- [Main Task](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%201)
-- [Bonus Task 1](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%202)
-- [Bonus Task 2](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%203)
-- [Bonus Task 3](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
-- [Bonus Task 4](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
-
+- [Main Homework](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%201)
+- [README Work](example.com)
 ---
 
 ## 🏞️ Content Description & Context
@@ -67,13 +63,13 @@ Completed last week and includes the **Python MCP Client project**.
 │   ├── comparison_results.txt
 │   └── README.md
 │
-├── Run-LLM                    Task 1: Run open-source LLaMa model
+├── Run-LLM                    Task 1: Run open-source LLama model
 │   ├── run_llm.py
 │   ├── check1.txt
 │   └── check2.txt
 │
 └── Test-vLLM                   Task 2: Lightning-fast vLLM inference
-    ├── vllm_api_test.py
+    ├── vllm_api_test.py        ! COULD NOT USE LLAMA 8B OR MISTRAL 7B WITH INFERENCE.AI ! Used Llama 1B instead
     └── vllm_test_results.txt
 ```
 
@@ -86,18 +82,29 @@ Completed last week and includes the **Python MCP Client project**.
 
 ## 📋 Task To Do List For This Week
 
-### **Main Task:**
-- [x] Play around with Tesseract via Terminal.
-- [x] Python script for Tesseract OCR.
+### **'Class 2 Homework.ipynb'**
+- ### **Main Task:**
+    - [x] Play around with Tesseract via Terminal.
+    - [x] Python script for Tesseract OCR.
 
-### **Bonus Task 1:**
-- [x] Create a script using arXiv, Trafilatura, and requests to scrape abstracts and convert to .json files.
+- ### **Bonus Task 1:**
+    - [x] Create a script using arXiv, Trafilatura, and requests to scrape abstracts and convert to .json files.
 
-### **Bonus Task 2:**
-- [x] Create a script using pdf2image and pytesseract to convert PDFs to images, then to text.
+- ### **Bonus Task 2:**
+    - [x] Create a script using pdf2image and pytesseract to convert PDFs to images, then to text.
 
-### **Bonus Task 3:**
-- [x] Create a script using yt-dlp and pytesseract to transcribe.
+- ### **Bonus Task 3:**
+    - [x] Create a script using yt-dlp and pytesseract to transcribe.
 
-### **Bonus Task 4:**
-- [x] Create a script using langdetect and datasketch to clean data and deduplicate.
+- ### **Bonus Task 4:**
+    - [x] Create a script using langdetect and datasketch to clean data and deduplicate.
+
+### **README_class2.ipynb**
+- ### **Task 1:**
+    - [x] Run an open-source huggingface LLM via Python.
+
+- ### **Task 2:**
+    - [x] Run a vLLM with API.
+
+- ### **Bonus Task 2:**
+    - [x] Compare vLLM and OpenAI's ChatGPT from a performance, accuracy, and cost standpoint. 

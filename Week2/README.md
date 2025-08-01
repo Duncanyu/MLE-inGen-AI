@@ -1,18 +1,20 @@
-# Week 2 – Data Collection & Extraction
+# Week 2 Information
 
-This week focused on data collection and extraction methods, including OCR tools and content extraction libraries.
+This week there were two assignment files. 'Class 2 Homework.jpynb' and README_class2.jpynb.
 
 ## Tasks
 
-- Main task: Data collection and OCR using Tesseract
-- Bonus task 1: Use Trafilatura for web content extraction
-- Bonus task 2: PDF OCR processing
-- Bonus task 3+: (other optional tasks)
+- 'Class 2 Homework.jpynb'
+    - Trafilatura
+    - PDFs
+    - ASR
+    - Cleanup
+- README_class2.jpynb
+    - Run an LLM locally
+    - Test vLLM API (Could only do LLaMa 1B)
+    - Compare results with ChatGPT API
 
 ## Status
 
-- [x] Main task completed
-- [x] Bonus task: Trafilatura
-- [x] Bonus task: PDF OCR
-- [x] Bonus task: ASR
-- [x] Bonus task: Data Cleaning & Deduplication
+- [x] 'Class 2 Homework.jpynb'
+- [x] 'README_class2.jpynb'

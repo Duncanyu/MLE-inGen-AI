@@ -20,6 +20,8 @@
 ### **📁 DuncanYu-HW**
 Contains all homework submissions for **Week 1** and **Week 2**, plus root files.
 
+---
+
 ### **📁 Week 1 – Week 1 Content**
 Completed last week and includes the **Python MCP Client project**.
 

@@ -1,14 +1,14 @@
 import time
 import requests
 import json
-import openai
+from openai import OpenAI
 from keys import OPENAI_KEY
 
 API_URL = "http://127.0.0.1:8000/v1/completions"
 MODEL_NAME = "meta-llama/Llama-3.2-1B"
 CHATGPT_MODEL = "gpt-4"
 
-openai.api_key = OPENAI_KEY
+client = OpenAI(api_key=OPENAI_KEY)
 
 tests = [
     ("What is the capital of France?", "Paris"),
@@ -29,16 +29,22 @@ def query_vllm(prompt):
         return None, elapsed
 
 def query_chatgpt(prompt):
-    start = time.time()
-    response = openai.ChatCompletion.create(
-        model=CHATGPT_MODEL,
-        messages=[{"role": "user", "content": prompt}],
+    import time
+    start_time = time.time()
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ],
         max_tokens=50,
-        temperature=0
+        temperature=0.7
     )
-    elapsed = time.time() - start
-    text = response.choices[0].message["content"].strip()
-    return text, elapsed
+
+    output = response.choices[0].message.content
+    elapsed_time = round(time.time() - start_time, 2)
+    return output, elapsed_time
 
 vllm_correct = 0
 chatgpt_correct = 0

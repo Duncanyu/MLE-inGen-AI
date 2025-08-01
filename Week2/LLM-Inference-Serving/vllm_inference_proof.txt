@@ -1,0 +1,9 @@
+Prompt:
+Question: Which of the following is the capital of Canada?
+A. Paris
+B. New York
+C. Toronto
+D. Ottawa
+Answer:
+
+Answer: D

@@ -11,8 +11,8 @@
 - [Notion Page](https://www.notion.so/MCP-Automation-Test-23c2af8f73e781e49ff1f6f03235f0d9?source=copy_link)
 
 ### **Week 2:** 
-- [Main Homework](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week%201/Part%201)
-- [README Work](example.com)
+- [Main Homework](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week2/Homework)
+- [README Work](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week2/README-class2)
 ---
 
 ## 🏞️ Content Description & Context

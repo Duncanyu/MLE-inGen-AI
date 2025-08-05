@@ -1,0 +1,10 @@
+openai
+huggingface_hub
+vllm
+faster-whisper
+TTS
+sounddevice
+numpy
+pydub
+accelerate
+webrtcvad

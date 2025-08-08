@@ -8,3 +8,5 @@ numpy
 pydub
 accelerate
 webrtcvad
+uvicorn
+fastapi

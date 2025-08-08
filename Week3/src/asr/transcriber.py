@@ -8,4 +8,5 @@ def transcribe(audio_path, model_size = "small", device = "cpu"):
     segments, info = model.transcribe(audio_path)
     text = " ".join([segment.text for segment in segments])
 
+    print(f"transcribed: {text}")
     return text

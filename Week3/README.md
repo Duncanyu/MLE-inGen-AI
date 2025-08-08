@@ -1,4 +1,4 @@
-# Week 2 Information
+# Week 3 Information
 
 **-- IMPORTANT --**
 ‼️ This week's project was done in a separate repository found [here](https://github.com/Duncanyu/voice-research-agent) ‼️

@@ -13,6 +13,9 @@
 ### **Week 2:** 
 - [Main Homework](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week2/Homework)
 - [README Work](https://github.com/inference-ai-course/DuncanYu-HW/tree/main/Week2/README-class2)
+
+### **Week 3:** 
+- [Voice Agent Repo](https://github.com/Duncanyu/voice-research-agent)
 ---
 
 ## 🏞️ Content Description & Context
@@ -42,41 +45,16 @@ Completed last week and includes the **Python MCP Client project**.
 
 #### **Homework** *(from `Class 2 Homework.ipynb`)*
 ```text
-├── _Main-Task-Tesseract
-│   ├── grayscale.txt        OCR output for grayscale image
-│   ├── handwriting.txt      OCR output for handwriting image
-│   └── typewriter.txt       OCR output for typewriter image
-│
-├── Bonus1-Trafilatura
-│   ├── abstract_scraper.py  Script for scraping abstracts into JSON
-│   └── arxiv_clean.json
-│
-├── Bonus2-PDFs
-│   ├── pdf_ocr/
-│   │   └── ceaselessly.txt  OCR output for sample PDF
-│   ├── ceaselessly.pdf
-│   └── pdf_scraper.py       PDF-to-image-to-text OCR pipeline
+├── To avoid clutter, this week's work has been condensed/removed from the content preview
 │
 └── README.md
 ```
 
-#### **README-class2 Tasks** *(from `README_class2.ipynb`)*
+### **📁 Week 2 – Week 2 Content**
+
+#### **Homework** *(from `Class 2 Homework.ipynb`)*
 ```text
-├── Compare-vLLM-ChatGPT       Task 3: Compare accuracy/performance
-│   ├── compare_llm_chatgpt.py
-│   ├── comparison_results.txt
-│   └── README.md
-│
-├── Run-LLM                    Task 1: Run open-source LLama model
-│   ├── run_llm.py
-│   ├── check1.txt
-│   └── check2.txt
-│
-└── Test-vLLM                   Task 2: Lightning-fast vLLM inference
-│   ├── vllm_api_test.py        ! COULD NOT USE LLAMA 8B OR MISTRAL 7B WITH INFERENCE.AI ! Used Llama 1B instead
-│   └── vllm_test_results.txt
-│
-└── README.md
+└── README.md [To view the project, read the README]
 ```
 
 ### **📄 Other root files**
@@ -90,30 +68,13 @@ Completed last week and includes the **Python MCP Client project**.
 
 ### **'Class 2 Homework.ipynb'**
 - ### Main Task:
-    - [x] Play around with Tesseract via Terminal.
-    - [x] Python script for Tesseract OCR.
+    - [x] Create a voice research agent using:
+        - [x] Fast API file uploads
+        - [x] OpenAI Whipser
+        - [x] Huggingface Llama vllm
+        - [x] Coqui TTS
 
-- ### Bonus Task 1:
-    - [x] Create a script using arXiv, Trafilatura, and requests to scrape abstracts and convert to .json files.
-
-- ### Bonus Task 2:
-    - [x] Create a script using pdf2image and pytesseract to convert PDFs to images, then to text.
-
-- ### Bonus Task 3:
-    - [x] Create a script using yt-dlp and pytesseract to transcribe.
-
-- ### Bonus Task 4:
-    - [x] Create a script using langdetect and datasketch to clean data and deduplicate.
-
-- ### Bonus Task 4:
-    - [x] Create a script using langdetect and datasketch to clean data and deduplicate.
-
-### **README_class2.ipynb**
-- ### Task 1:
-    - [x] Run an open-source huggingface LLM via Python.
-
-- ### Task 2:
-    - [x] Run a vLLM with API.
-
-- ### Bonus Task 2:
-    - [x] Compare vLLM and OpenAI's ChatGPT from a performance, accuracy, and cost standpoint. 
+- ### Not Required Addons
+    - [x] Sounddevice and Webtrvad for live audio recording
+    - [x] OpenAI API [I could not get Llama to work with memory, thus I used ChatGPT]
+    - [x] Web integration

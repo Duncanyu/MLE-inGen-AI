@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Week4 Pipeline UI</title>
+</head>
+<body>
+  <h1>Wek4 Pipeline & Search</h1>
+
+  <section>
+    <h2>Run Pipeline</h2>
+    <label>Query:
+      <input type="text" id="pipelineQuery" placeholder="e.g. cat:cs.CL">
+    </label>
+    <label>Max Results:
+      <input type="number" id="pipelineMax" value="200">
+    </label>
+    <button onclick="runPipeline()">Run</button>
+    <pre id="pipelineOutput"></pre>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Search</h2>
+    <label>Query:
+      <input type="text" id="searchQuery" placeholder="Search text">
+    </label>
+    <label>K:
+      <input type="number" id="searchK" value="5">
+    </label>
+    <label>Unique Per Doc:
+      <select id="searchPerDoc">
+        <option value="1" selected>Yes</option>
+        <option value="0">No</option>
+      </select>
+    </label>
+    <button onclick="doSearch()">Search</button>
+    <pre id="searchOutput"></pre>
+  </section>
+
+<script>
+const API_BASE = 'http://127.0.0.1:8000';
+
+async function runPipeline() {
+  const query = document.getElementById('pipelineQuery').value;
+  const maxResults = document.getElementById('pipelineMax').value;
+  const resp = await fetch(`${API_BASE}/pipeline`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      query: query || undefined,
+      max_results: maxResults ? parseInt(maxResults) : undefined
+    })
+  });
+  document.getElementById('pipelineOutput').textContent = JSON.stringify(await resp.json(), null, 2);
+}
+
+async function doSearch() {
+  const q = document.getElementById('searchQuery').value;
+  const k = document.getElementById('searchK').value;
+  const perDoc = document.getElementById('searchPerDoc').value;
+  const resp = await fetch(`${API_BASE}/search?q=${encodeURIComponent(q)}&k=${k}&per_doc=${perDoc}`);
+  document.getElementById('searchOutput').textContent = JSON.stringify(await resp.json(), null, 2);
+}
+</script>
+</body>
+</html>

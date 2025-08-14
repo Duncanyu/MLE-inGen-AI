@@ -10,8 +10,6 @@ OUT_DIR = Path("/Users/duncanyu/Documents/GitHub/DuncanYu-HW/Week4/Homework/src/
 META_PATH = Path("/Users/duncanyu/Documents/GitHub/DuncanYu-HW/Week4/Homework/src/data/metadata.jsonl")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-MAX_RESULTS = 50
-
 search = arxiv.Search(
     query=QUERY,
     max_results=MAX_RESULTS,

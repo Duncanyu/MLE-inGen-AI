@@ -23,7 +23,7 @@ LLM_MODEL = "gpt-4o-mini"
 
 def load_chunks(path: Path):
     if not path.exists():
-        raise FileNotFoundError(f"missing chunks file: {path}")
+        raise FileNotFoundError(f"missing chunks file (okease rerun the chunking.py script): {path}")
     docs: List[Document] = []
     with path.open("r", encoding="utf-8") as f:
         for line in f:
@@ -64,7 +64,7 @@ def main():
         llm = ChatOpenAI(model=LLM_MODEL, temperature=0, api_key=OPENAI_KEY)
     else:
         raise RuntimeError(
-            "no OPENAI_KEY set in keys.py. Add your key or switch LLM to a local option."
+            "no OPENAI_KEY set in keys.py...  add your key or switch llm to a local offline option"
         )
 
     qa = RetrievalQA.from_chain_type(

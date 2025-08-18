@@ -84,7 +84,7 @@ def main():
         for d in resp["source_documents"]:
             src = d.metadata.get("source")
             page = d.metadata.get("page")
-            print(f" • {src}" + (f" (p.{page})" if page is not None else ""))
+            print(f" -> {src}" + (f" (p.{page})" if page is not None else ""))
 
 if __name__ == "__main__":
     main()

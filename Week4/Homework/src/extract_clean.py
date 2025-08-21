@@ -1,15 +1,19 @@
 import json, re, hashlib
 from pathlib import Path
-from typing import Dict, List, Tuple
 from tqdm import tqdm
 import fitz
+from .paths import DATA_DIR
 
-META_PATH = Path("/Users/duncanyu/Documents/GitHub/DuncanYu-HW/Week4/Homework/src/data/metadata.jsonl")
-PDF_DIR   = Path("/Users/duncanyu/Documents/GitHub/DuncanYu-HW/Week4/Homework/src/data/pdfs")
-OUT_RAW   = Path("/Users/duncanyu/Documents/GitHub/DuncanYu-HW/Week4/Homework/src/data/texts.jsonl")
-OUT_DEDUP = Path("/Users/duncanyu/Documents/GitHub/DuncanYu-HW/Week4/Homework/src/data/texts_dedup.jsonl")
+META_PATH = DATA_DIR / "metadata.jsonl"
+ALT_META = Path(__file__).resolve().parent / "data" / "metadata.jsonl"
+PDF_DIR   = DATA_DIR / "pdfs"
+OUT_RAW   = DATA_DIR / "texts.jsonl"
+OUT_DEDUP = DATA_DIR / "texts_dedup.jsonl"
 
-def clean_page_text(t: str):
+if not META_PATH.exists() and ALT_META.exists():
+    META_PATH = ALT_META
+
+def clean_page_text(t):
     if not t:
         return ""
     t = t.replace("\r", " ").replace("\t", " ")
@@ -18,7 +22,7 @@ def clean_page_text(t: str):
     t = re.sub(r"[ \u00A0]+", " ", t)
     return t.strip()
 
-def strip_common_noise(full: str):
+def strip_common_noise(full):
     keep = []
     for ln in full.splitlines():
         s = ln.strip()
@@ -33,27 +37,27 @@ def strip_common_noise(full: str):
         keep.append(s)
     return "\n".join(keep).strip()
 
-def maybe_trim_references(t: str):
+def maybe_trim_references(t):
     m = re.search(r"\n\s*(REFERENCES|References|Bibliography)\s*\n", t)
     if not m:
         return t
     head, tail = t[:m.start()], t[m.start():]
     return head.strip() if len(tail) > 2000 else t
 
-def normalize_for_hash(t: str):
+def normalize_for_hash(t):
     t = t.lower()
     t = re.sub(r"\s+", " ", t).strip()
     return t
 
-def hash_text(t: str) -> str:
+def hash_text(t):
     return hashlib.sha256(normalize_for_hash(t).encode("utf-8")).hexdigest()
 
-def hash_title_year(title: str, date: str):
+def hash_title_year(title, date):
     year = date.split("-")[0] if date else ""
-    key = f"{title.strip().lower()}_{year}"
+    key = f"{(title or '').strip().lower()}_{year}"
     return hashlib.sha1(key.encode("utf-8")).hexdigest()
 
-def extract_pdf_text(pdf_path: Path):
+def extract_pdf_text(pdf_path):
     doc = fitz.open(pdf_path)
     pages = []
     for p in doc:
@@ -65,15 +69,27 @@ def extract_pdf_text(pdf_path: Path):
     full = maybe_trim_references(full)
     return full, page_count
 
+def resolve_pdf_path(rec):
+    raw = rec.get("pdf_path", "")
+    p = Path(raw) if raw else None
+    if p and not p.is_absolute():
+        p = (PDF_DIR / p).resolve()
+    if not p or not p.exists():
+        guess = PDF_DIR / f"{rec.get('id','')}.pdf"
+        if guess.exists():
+            p = guess
+    return p
+
 def main():
-    assert META_PATH.exists(), f"Missing {META_PATH}"
+    if not META_PATH.exists():
+        raise FileNotFoundError(f"missing: {META_PATH} (and {ALT_META} not found)")
     OUT_RAW.parent.mkdir(parents=True, exist_ok=True)
 
     raw_count = 0
     with OUT_RAW.open("w", encoding="utf-8") as out_raw, META_PATH.open("r", encoding="utf-8") as meta_f:
-        for line in tqdm(meta_f, desc="Eetracting"):
+        for line in tqdm(meta_f, desc="Extracting"):
             rec = json.loads(line)
-            pdf_path = Path(rec.get("pdf_path", ""))
+            pdf_path = resolve_pdf_path(rec)
             if not pdf_path or not pdf_path.exists():
                 continue
             try:
@@ -92,7 +108,7 @@ def main():
                 out_raw.write(json.dumps(out, ensure_ascii=False) + "\n")
                 raw_count += 1
             except Exception as e:
-                print(f"Extract fail {rec.get('id','?')}: {e}")
+                print(f"fail: {rec.get('id','?')}: {e}")
 
     print(f"{raw_count} cleaned records: {OUT_RAW}")
 
@@ -112,7 +128,7 @@ def main():
             g.write(json.dumps(rec, ensure_ascii=False) + "\n")
             kept += 1
 
-    print(f"Deduped: kept {kept} records in {OUT_DEDUP}")
+    print(f"Kept {kept} records in {OUT_DEDUP}")
 
 if __name__ == "__main__":
     main()

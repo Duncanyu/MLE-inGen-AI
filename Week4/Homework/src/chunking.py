@@ -1,13 +1,13 @@
 import json
 from pathlib import Path
-from typing import List
 from tqdm import tqdm
+from .paths import DATA_DIR, CHUNKS_JSONL
 
-IN_PATH = Path("/Users/duncanyu/Documents/GitHub/DuncanYu-HW/Week4/Homework/src/data/texts_dedup.jsonl")
-OUT_PATH = Path("/Users/duncanyu/Documents/GitHub/DuncanYu-HW/Week4/Homework/src/data/chunks.jsonl")
+IN_PATH = DATA_DIR / "texts_dedup.jsonl"
+OUT_PATH = CHUNKS_JSONL
 OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
-def chunk_text(text: str, max_tokens: int = 512, overlap: int = 50):
+def chunk_text(text, max_tokens=512, overlap=50):
     tokens = text.split()
     chunks = []
     step = max_tokens - overlap
@@ -31,7 +31,6 @@ with OUT_PATH.open("w", encoding="utf-8") as out_f, IN_PATH.open("r", encoding="
         doc_chunks = chunk_text(rec["text"], max_tokens=512, overlap=50)
         if not doc_chunks:
             continue
-
         for idx, ch in enumerate(doc_chunks):
             out_f.write(json.dumps({
                 "doc_id": rec["id"],
@@ -41,12 +40,10 @@ with OUT_PATH.open("w", encoding="utf-8") as out_f, IN_PATH.open("r", encoding="
                 "chunk_id": idx,
                 "text": ch
             }, ensure_ascii=False) + "\n")
-
         chunks_by_doc[rec["id"]] = doc_chunks
         list_of_chunks.extend(doc_chunks)
-
         n_docs += 1
         n_chunks += len(doc_chunks)
 
-print(f"Doucments procesed: {n_docs}")
+print(f"Documents processed: {n_docs}")
 print(f"Chunks written: {n_chunks}")

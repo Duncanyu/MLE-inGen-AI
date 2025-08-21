@@ -1,13 +1,8 @@
 from pathlib import Path
-import os, json, torch, types, sys
+import os, json, torch
 from datasets import Dataset
 from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments, Trainer, DataCollatorForLanguageModeling, BitsAndBytesConfig
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-
-fake_ds = types.ModuleType("deepspeed")
-class DeepSpeedEngine: ...
-fake_ds.DeepSpeedEngine = DeepSpeedEngine
-sys.modules.setdefault("deepspeed", fake_ds)
 
 BASE_DIR    = Path(__file__).resolve().parent
 DATA_DIR    = BASE_DIR / "data"
@@ -120,7 +115,6 @@ def main():
         args=targs,
         train_dataset=ds_tok,
         data_collator=data_collator,
-        tokenizer=tok,
     )
 
     trainer.train()

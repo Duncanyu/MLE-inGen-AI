@@ -1,15 +1,13 @@
 from pathlib import Path
-import os, json, torch
+import os, json, torch, types, sys
 from datasets import Dataset
-from transformers import (
-    AutoTokenizer,
-    AutoModelForCausalLM,
-    TrainingArguments,
-    Trainer,
-    DataCollatorForLanguageModeling,
-    BitsAndBytesConfig,
-)
+from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments, Trainer, DataCollatorForLanguageModeling, BitsAndBytesConfig
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+
+fake_ds = types.ModuleType("deepspeed")
+class DeepSpeedEngine: ...
+fake_ds.DeepSpeedEngine = DeepSpeedEngine
+sys.modules.setdefault("deepspeed", fake_ds)
 
 BASE_DIR    = Path(__file__).resolve().parent
 DATA_DIR    = BASE_DIR / "data"
@@ -27,14 +25,13 @@ WEIGHT_DECAY = 0.0
 LOG_STEPS    = 10
 SAVE_STEPS   = 200
 SEED         = 42
-
 USE_4BIT     = True
 LORA_R       = 16
 LORA_ALPHA   = 32
 LORA_DROPOUT = 0.05
 LORA_TARGET  = ["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]
 
-def load_chatml_jsonl(path: Path):
+def load_chatml_jsonl(path):
     rows = []
     with path.open("r", encoding="utf-8") as f:
         for line in f:
@@ -66,12 +63,7 @@ def main():
 
     ds_text = ds.map(lambda ex: {"text": format_example(ex)})
     def tok_fn(batch):
-        out = tok(
-            batch["text"],
-            truncation=True,
-            max_length=CUTOFF_LEN,
-            padding=False,
-        )
+        out = tok(batch["text"], truncation=True, max_length=CUTOFF_LEN, padding=False)
         out["labels"] = out["input_ids"].copy()
         return out
     ds_tok = ds_text.map(tok_fn, batched=True, remove_columns=ds_text.column_names)
@@ -84,18 +76,10 @@ def main():
             bnb_4bit_quant_type="nf4",
             bnb_4bit_compute_dtype=compute_dtype,
         )
-        model = AutoModelForCausalLM.from_pretrained(
-            BASE_MODEL,
-            quantization_config=quant_config,
-            device_map="auto",
-        )
+        model = AutoModelForCausalLM.from_pretrained(BASE_MODEL, quantization_config=quant_config, device_map="auto")
         model = prepare_model_for_kbit_training(model)
     else:
-        model = AutoModelForCausalLM.from_pretrained(
-            BASE_MODEL,
-            torch_dtype=compute_dtype,
-            device_map="auto",
-        )
+        model = AutoModelForCausalLM.from_pretrained(BASE_MODEL, torch_dtype=compute_dtype, device_map="auto")
 
     model.config.use_cache = False
     if getattr(model.config, "pretraining_tp", None) is not None:
@@ -135,8 +119,8 @@ def main():
         model=model,
         args=targs,
         train_dataset=ds_tok,
-        tokenizer=tok,
         data_collator=data_collator,
+        tokenizer=tok,
     )
 
     trainer.train()

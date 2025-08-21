@@ -1,6 +1,8 @@
 # Duncan Yu's Homework
 ### This repository contains my submissions for each week's homework.
 
+### yes im sorry ive kinda given up  on the readmes :(
+
 ---
 
 ## 🔗 Important Links:

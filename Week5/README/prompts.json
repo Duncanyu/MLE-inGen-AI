@@ -1,0 +1,7 @@
+{
+  "prompts": [
+    "Explain LoRA to a junior ML engineer in 6 sentences.",
+    "Provide a safe, step-by-step checklist for deploying a small web service.",
+    "Summarize tradeoffs between LoRA, QLoRA, and full fine-tuning."
+  ]
+}

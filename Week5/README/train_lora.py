@@ -1,15 +1,15 @@
 from pathlib import Path
-import os, json
-import torch
+import os, json, torch
 from datasets import Dataset
 from transformers import (
     AutoTokenizer,
     AutoModelForCausalLM,
     TrainingArguments,
+    Trainer,
+    DataCollatorForLanguageModeling,
     BitsAndBytesConfig,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-from trl import SFTTrainer
 
 BASE_DIR    = Path(__file__).resolve().parent
 DATA_DIR    = BASE_DIR / "data"
@@ -34,15 +34,14 @@ LORA_ALPHA   = 32
 LORA_DROPOUT = 0.05
 LORA_TARGET  = ["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]
 
-def load_chatml_jsonl(path: Path) -> Dataset:
+def load_chatml_jsonl(path: Path):
     rows = []
     with path.open("r", encoding="utf-8") as f:
         for line in f:
             convo = json.loads(line)
-            user = ""
-            assistant = ""
+            user, assistant = "", ""
             for m in convo:
-                role = m.get("role", "")
+                role = m.get("role")
                 if role == "user":
                     user = m.get("content", "")
                 elif role == "assistant":
@@ -50,9 +49,11 @@ def load_chatml_jsonl(path: Path) -> Dataset:
             rows.append({"prompt": user, "response": assistant})
     return Dataset.from_list(rows)
 
+def format_example(ex):
+    return f"<|user|>\n{ex['prompt']}\n<|assistant|>\n{ex['response']}"
+
 def main():
     torch.backends.cuda.matmul.allow_tf32 = True
-
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -63,8 +64,19 @@ def main():
         tok.pad_token = tok.eos_token
     tok.padding_side = "right"
 
-    compute_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+    ds_text = ds.map(lambda ex: {"text": format_example(ex)})
+    def tok_fn(batch):
+        out = tok(
+            batch["text"],
+            truncation=True,
+            max_length=CUTOFF_LEN,
+            padding=False,
+        )
+        out["labels"] = out["input_ids"].copy()
+        return out
+    ds_tok = ds_text.map(tok_fn, batched=True, remove_columns=ds_text.column_names)
 
+    compute_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
     if USE_4BIT:
         quant_config = BitsAndBytesConfig(
             load_in_4bit=True,
@@ -81,6 +93,7 @@ def main():
     else:
         model = AutoModelForCausalLM.from_pretrained(
             BASE_MODEL,
+            torch_dtype=compute_dtype,
             device_map="auto",
         )
 
@@ -115,17 +128,15 @@ def main():
         seed=SEED,
         report_to="none",
     )
-    
-    trainer = SFTTrainer(
+
+    data_collator = DataCollatorForLanguageModeling(tokenizer=tok, mlm=False)
+
+    trainer = Trainer(
         model=model,
         args=targs,
-        train_dataset=ds,
+        train_dataset=ds_tok,
         tokenizer=tok,
-        packing=True,
-        max_seq_length=CUTOFF_LEN,
-        formatting_func=lambda ex: [
-            f"<|user|>\n{ex['prompt']}\n<|assistant|>\n{ex['response']}"
-        ],
+        data_collator=data_collator,
     )
 
     trainer.train()
